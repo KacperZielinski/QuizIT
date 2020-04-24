@@ -7,6 +7,8 @@ spring:
       database: quizit
       port: 27017
       host: localhost
+# lub spring.data.mongodb.uri = mongodb://localhost:27017/quizit
+
 
 logging:
   level:

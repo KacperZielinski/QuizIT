@@ -1,0 +1,35 @@
+<h3>Word</h3>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+  <div>
+    <label for="english">
+      english
+    </label>
+    <input id="english" type="text" formControlName="english">
+  </div>
+
+  <div>
+    <label for="polish">
+      polish -
+    </label>
+    <input id="polish" type="text" formControlName="polish">
+  </div>
+
+  <div>
+    <label for="german">
+      german
+    </label>
+    <input id="german" type="text" formControlName="german">
+  </div>
+
+  <div>
+    <label for="french">
+      french
+    </label>
+    <input id="french" type="text" formControlName="french">
+  </div>
+
+  <button class="button" type="submit">Purchase</button>
+
+</form>

@@ -32,7 +32,7 @@ public class WordEndpoint {
     }
 
     @GetMapping(value = "/word")
-    public String getWord() {
-        return "test";
+    public Word getRandomWord() {
+        return wordRepository.findAll().get(0);
     }
 }

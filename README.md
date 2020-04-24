@@ -13,12 +13,19 @@ Frontend: `ng serve -o`
 ## Stack
 ### Backend
 * Java 14
-* Hibernate
+* MongoDB (NoSQL)
 * Spring Boot
 * Spring REST
 * Spring Data
-* MongoDB
+* Maven
 
 ### Frontend
 * Angular 9
+* Angular Material
 * Bootstrap 4
+* ECMAScript ES6
+* HTML 5
+* CSS 3
+
+### Future
+* OAuth
