@@ -18,6 +18,7 @@ Frontend: `ng serve -o`
 * Spring REST
 * Spring Data
 * Maven
+* Mapstruct
 
 ### Frontend
 * Angular 9

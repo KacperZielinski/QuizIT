@@ -8,27 +8,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.kz.dto.WordDto;
+import pl.kz.mapper.WordMapper;
 import pl.kz.model.Word;
 import pl.kz.repository.WordRepository;
 
 @RestController
 @RequestMapping("/api")
-public class WordEndpoint {
+public class WordController {
 
     @Autowired
     WordRepository wordRepository;
 
     @CrossOrigin
     @PostMapping(value = "/word")
-    public String addWord(@RequestBody WordDto word) {
-        Word w = new Word();
-        w.setEnglish(word.getEnglish());
-        w.setFrench(word.getFrench());
-        w.setGerman(word.getGerman());
-        w.setPolish(word.getPolish());
-
-        wordRepository.insert(w);
-        return word.toString();
+    public Word addWord(@RequestBody WordDto word) {
+        return wordRepository.insert(WordMapper.getInstance().toWord(word));
     }
 
     @GetMapping(value = "/word")
