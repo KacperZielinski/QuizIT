@@ -4,7 +4,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import pl.kz.model.Word;
 
+import java.util.List;
+
 @Repository
-public interface DictionaryRepository extends MongoRepository {
-    Word findByName(String name);
+public interface WordRepository extends MongoRepository<Word, String> {
+    List<Word> findAll();
 }
