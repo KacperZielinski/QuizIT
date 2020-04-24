@@ -19,10 +19,13 @@ public class WordController {
     @Autowired
     WordRepository wordRepository;
 
+    @Autowired
+    WordMapper mapper;
+
     @CrossOrigin
     @PostMapping(value = "/word")
     public Word addWord(@RequestBody WordDto word) {
-        return wordRepository.insert(WordMapper.getInstance().toWord(word));
+        return wordRepository.insert(mapper.toWord(word));
     }
 
     @GetMapping(value = "/word")
