@@ -12,6 +12,11 @@ import pl.kz.mapper.WordMapper;
 import pl.kz.model.Word;
 import pl.kz.repository.WordRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class WordController {
@@ -22,7 +27,6 @@ public class WordController {
     @Autowired
     WordMapper mapper;
 
-    @CrossOrigin
     @PostMapping(value = "/word")
     public Word addWord(@RequestBody WordDto word) {
         return wordRepository.insert(mapper.toWord(word));
@@ -31,5 +35,20 @@ public class WordController {
     @GetMapping(value = "/word")
     public Word getRandomWord() {
         return wordRepository.findAll().get(0);
+    }
+
+    @GetMapping(value = "/quiz/rand")
+    public List<Word> getRandomQuiz() throws InterruptedException {
+        // TODO make it more performant and clean..
+        List<Word> chosenWords = new ArrayList<>(4);
+        List<Word> words = wordRepository.findAll();
+
+        for (int i = 0; i < 4; i++) {
+            Random random = new Random();
+            chosenWords.add(words.get(Math.abs(random.nextInt() % words.size())));
+            Thread.sleep(Math.abs(random.nextInt() % 1000));
+        }
+
+        return chosenWords;
     }
 }

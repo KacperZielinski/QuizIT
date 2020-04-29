@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 import {Word} from "../model/Word";
-import {Subscription} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class WordService {
+
+  private apiUrl = 'http://localhost:8080/api';
 
   words = [];
 
@@ -14,7 +16,7 @@ export class WordService {
 
   addNewWord(word: Word): Subscription {
     word.id = undefined;
-    return this.http.post<Word>('http://127.0.0.1:8080/api/word', word)
+    return this.http.post<Word>(`${this.apiUrl}/word`, word)
       .subscribe({
       next: data => this.words.push(data),
       error: error => console.error('There was an error!', error)
@@ -22,7 +24,11 @@ export class WordService {
   }
 
   getWords() {
-    return this.http.get<Word[]>('http://localhost:8080/api/word');
+    return this.http.get<Word[]>(`${this.apiUrl}/word`);
+  }
+
+  getQuizQuestions(): Observable<Word[]> {
+    return this.http.get<Word[]>(`${this.apiUrl}/quiz/rand`);
   }
 
   clear() {

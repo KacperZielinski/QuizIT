@@ -22,7 +22,6 @@ Frontend: `ng serve -o`
 
 ### Frontend
 * Angular 9
-* Angular Material
 * Bootstrap 4
 * ECMAScript ES6
 * HTML 5
@@ -30,3 +29,4 @@ Frontend: `ng serve -o`
 
 ### Future
 * OAuth
+* Angular Material
