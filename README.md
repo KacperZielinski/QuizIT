@@ -27,6 +27,20 @@ Frontend: `ng serve -o`
 * HTML 5
 * CSS 3
 
-### Future
+### TODO
 * OAuth
+* JWT
 * Angular Material
+* Save items to .json in case of missing MongoDB
+* Import from .json into MongoDB
+* Create pretty grid and layout using various technics
+* Validation of data using pure JS, Bootstrap, Angular
+* Health checks for backend
+* Monitoring tool
+* Swagger
+* API Gateway with restrictions?
+* Cloud ?
+* Switch to microservices?
+* Apache Flink, Spark
+* RabbitMQ
+* Cassandra
