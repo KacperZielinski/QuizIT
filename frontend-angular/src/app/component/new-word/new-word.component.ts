@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { WordService } from "../../service/word.service";
+import { Word } from "../../model/Word";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'new-word',
@@ -8,31 +10,17 @@ import { WordService } from "../../service/word.service";
   styleUrls: ['./new-word.component.scss']
 })
 export class NewWordComponent implements OnInit {
-  items;
-  checkoutForm;
 
-  constructor(
-    private wordService: WordService,
-    private formBuilder: FormBuilder,
-  ) {
-    this.checkoutForm = this.formBuilder.group({
-      english: '',
-      polish: '',
-      german: '',
-      french: ''
-    });
-  }
+  randomQuizWords: Observable<Word[]>;
+  word: Word = {id: "", english: "", polish: "", german: "", french: ""};
+
+  constructor(private wordService: WordService) { }
 
   ngOnInit() {
-    this.items = this.wordService.getWords();
+    this.randomQuizWords = this.wordService.getWords();
   }
 
-  onSubmit(word) {
-    this.items = this.wordService.clear();
-    this.checkoutForm.reset();
-
-    this.wordService.addNewWord(word);
-
-    console.warn('Your order has been submitted', word);
+  onSubmit(form: NgForm) {
+    this.wordService.addNewWord(this.word);
   }
 }

@@ -23,7 +23,7 @@ export class WordService {
     });
   }
 
-  getWords() {
+  getWords(): Observable<Word[]> {
     return this.http.get<Word[]>(`${this.apiUrl}/word`);
   }
 

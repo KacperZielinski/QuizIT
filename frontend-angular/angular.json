@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -125,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "frontend-angular"
+  "defaultProject": "frontend-angular",
+  "cli": {
+    "analytics": false
+  }
 }
