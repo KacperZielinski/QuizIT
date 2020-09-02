@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { WordService } from "../../service/word.service";
 import { Word } from "../../model/Word";
-import { Observable } from "rxjs";
 
 @Component({
   selector: 'new-word',
@@ -11,13 +10,15 @@ import { Observable } from "rxjs";
 })
 export class NewWordComponent implements OnInit {
 
-  randomQuizWords: Observable<Word[]>;
+  randomQuizWords: Word[];
   word: Word = {id: "", english: "", polish: "", german: "", french: ""};
 
   constructor(private wordService: WordService) { }
 
   ngOnInit() {
-    this.randomQuizWords = this.wordService.getWords();
+    this.wordService.getWords().subscribe({
+      next: randomWords => this.randomQuizWords = randomWords
+    });
   }
 
   onSubmit(form: NgForm) {
