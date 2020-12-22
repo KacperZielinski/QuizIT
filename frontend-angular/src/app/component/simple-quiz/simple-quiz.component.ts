@@ -9,13 +9,13 @@ import {WordService} from "../../service/word.service";
 })
 export class SimpleQuizComponent implements OnInit {
 
-  quizQuestion: Word[] = [];
+  quizQuestions: Word[] = [];
 
   constructor(private wordService: WordService) { }
 
   ngOnInit(): void {
     this.wordService.getQuizQuestions().subscribe(value => {
-        this.quizQuestion = value;
+        this.quizQuestions = value;
         console.log(value);
     });
   }

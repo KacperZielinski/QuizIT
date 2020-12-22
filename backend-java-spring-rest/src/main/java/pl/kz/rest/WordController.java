@@ -1,5 +1,6 @@
 package pl.kz.rest;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+@Slf4j
 @CrossOrigin
 @RestController
 @RequestMapping("/api")
@@ -29,6 +31,7 @@ public class WordController {
 
     @PostMapping(value = "/word")
     public Word addWord(@RequestBody WordDto word) {
+        log.info("Received " + word.toString());
         return wordRepository.insert(mapper.toWord(word));
     }
 
@@ -43,10 +46,12 @@ public class WordController {
         List<Word> chosenWords = new ArrayList<>(4);
         List<Word> words = wordRepository.findAll();
 
-        for (int i = 0; i < 4; i++) {
-            Random random = new Random();
-            chosenWords.add(words.get(Math.abs(random.nextInt() % words.size())));
-            Thread.sleep(Math.abs(random.nextInt() % 1000));
+        if(words.size() >= 4) {
+            for (int i = 0; i < 4; i++) {
+                Random random = new Random();
+                chosenWords.add(words.get(Math.abs(random.nextInt() % words.size())));
+                Thread.sleep(Math.abs(random.nextInt() % 1000));
+            }
         }
 
         return chosenWords;
