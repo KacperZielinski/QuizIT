@@ -7,12 +7,14 @@ import { NewWordComponent } from './component/new-word/new-word.component';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { SimpleQuizComponent } from './component/simple-quiz/simple-quiz.component';
+import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewWordComponent,
-    SimpleQuizComponent
+    SimpleQuizComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
