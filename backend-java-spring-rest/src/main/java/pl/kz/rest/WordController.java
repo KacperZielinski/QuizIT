@@ -46,12 +46,12 @@ public class WordController {
         List<Word> chosenWords = new ArrayList<>(4);
         List<Word> words = wordRepository.findAll();
 
-        if(words.size() >= 4) {
-            for (int i = 0; i < 4; i++) {
-                Random random = new Random();
-                chosenWords.add(words.get(Math.abs(random.nextInt() % words.size())));
-                Thread.sleep(Math.abs(random.nextInt() % 1000));
-            }
+        int size = Math.min(words.size(), 4);
+
+        for (int i = 0; i < size; i++) {
+            Random random = new Random();
+            chosenWords.add(words.get(Math.abs(random.nextInt() % words.size())));
+            Thread.sleep(Math.abs(random.nextInt() % 1000));
         }
 
         return chosenWords;
