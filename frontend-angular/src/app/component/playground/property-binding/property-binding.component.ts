@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PropertyBindingComponent implements OnInit {
   propertyBindingValue: boolean;
+  propertyBindingValueSetLater: boolean;
   propertyBindingValueString: string;
 
   constructor() { }
@@ -18,7 +19,12 @@ export class PropertyBindingComponent implements OnInit {
     setTimeout(() => {
       this.propertyBindingValue = false;
       this.propertyBindingValueString = 'false';
+      this.propertyBindingValueSetLater = true;
     }, 3000)
+
+    setTimeout(() => {
+      this.propertyBindingValueSetLater = false;
+    }, 5000)
   }
 
 }

@@ -13,12 +13,26 @@
 <button id="button3"
   class="btn btn-primary"
   [disabled]="propertyBindingValueString">
-  Add new sth propertyBindingValue
+  Add new sth propertyBindingValueString
 </button>
 
 <button id="button4"
   class="btn btn-primary"
-  disabled="{{ propertyBindingValueString }}">
+  disabled={{propertyBindingValueString}}>
   Add new sth string interpolation: {{ propertyBindingValueString }}
 </button>
 
+<button id="button5"
+        class="btn btn-primary"
+        [disabled]="propertyBindingValueSetLater">
+  Add new sth propertyBindingValueString
+</button>
+
+<button id="button6"
+        class="btn btn-primary"
+        disabled={{propertyBindingValueSetLater}}>
+  Add new sth string interpolation: {{ propertyBindingValueSetLater }}
+</button>
+
+
+<!-- string interpolation works only once when initialized to property! => use property binding! -->
