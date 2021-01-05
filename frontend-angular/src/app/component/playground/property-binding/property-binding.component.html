@@ -1,0 +1,24 @@
+<button id="button1"
+  class="btn btn-primary"
+  [disabled]="propertyBindingValue">
+  Add new sth propertyBindingValue
+</button>
+
+<button id="button2"
+  class="btn btn-primary"
+  disabled="{{ propertyBindingValue }}">
+  Add new sth string interpolation: {{ propertyBindingValue }}
+</button>
+
+<button id="button3"
+  class="btn btn-primary"
+  [disabled]="propertyBindingValueString">
+  Add new sth propertyBindingValue
+</button>
+
+<button id="button4"
+  class="btn btn-primary"
+  disabled="{{ propertyBindingValueString }}">
+  Add new sth string interpolation: {{ propertyBindingValueString }}
+</button>
+

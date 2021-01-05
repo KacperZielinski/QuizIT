@@ -8,13 +8,17 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { SimpleQuizComponent } from './component/simple-quiz/simple-quiz.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
+import { PlaygroundComponent } from './component/playground/playground.component';
+import { PropertyBindingComponent } from './component/playground/property-binding/property-binding.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewWordComponent,
     SimpleQuizComponent,
-    NavBarComponent
+    NavBarComponent,
+    PlaygroundComponent,
+    PropertyBindingComponent
   ],
   imports: [
     BrowserModule,
