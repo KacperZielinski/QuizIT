@@ -8,3 +8,8 @@
 <input type="text" class="form-control" [(ngModel)]="result">
 <p>Result of input: {{ result }}</p>
 <button class="btn btn-primary" [disabled]="result.length === 0" (click)="result = ''">Click!</button>
+
+<p *ngIf="result.length === 0; else isMoreThanZero">My lenght is 0</p>
+<ng-template #isMoreThanZero>
+  <p>More than zero my friend!</p>
+</ng-template>
