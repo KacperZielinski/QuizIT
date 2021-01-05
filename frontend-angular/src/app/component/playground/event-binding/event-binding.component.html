@@ -1,0 +1,10 @@
+<label>Some name</label>
+<input type="text" class="form-control" (input)="execute($event)">
+<p>Result of input: {{ result }}</p>
+
+<!-- It won't update on async timeout :(, so we use 2-way data binding -->
+
+<label>Some ngModel name</label>
+<input type="text" class="form-control" [(ngModel)]="result">
+<p>Result of input: {{ result }}</p>
+<button class="btn btn-primary" [disabled]="result.length === 0" (click)="result = ''">Click!</button>

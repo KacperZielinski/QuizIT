@@ -10,6 +10,7 @@ import { SimpleQuizComponent } from './component/simple-quiz/simple-quiz.compone
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { PlaygroundComponent } from './component/playground/playground.component';
 import { PropertyBindingComponent } from './component/playground/property-binding/property-binding.component';
+import {EventBindingComponent} from "./component/playground/event-binding/event-binding.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PropertyBindingComponent } from './component/playground/property-bindin
     SimpleQuizComponent,
     NavBarComponent,
     PlaygroundComponent,
-    PropertyBindingComponent
+    PropertyBindingComponent,
+    EventBindingComponent
   ],
   imports: [
     BrowserModule,
