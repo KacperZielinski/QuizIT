@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class EventBindingComponent implements OnInit {
   result: string = '';
   color: string = 'red';
+  nums: number[] = [1,2,3];
 
   constructor() { }
 
